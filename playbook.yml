@@ -1,0 +1,15 @@
+- name: Provision WCMC GeoNode into Vagrant VM
+  hosts: all
+  remote_user: vagrant
+  vars:
+    app_name: wcmc_geonode
+    github_user: pjdufour
+    server_name: 0.0.0.0
+    deploy_user: vagrant
+    code_repository: "https://github.com/pjdufour/wcmc_geonode.git"
+    branch_name: master
+    virtualenv_dir: "/home/vagrant/.venvs"
+    site_url: "http://localhost:8000/"
+    geoserver_url: "http://build.geonode.org/geoserver/latest/geoserver-2.9.x-oauth2.war"
+  roles:
+     - { role: GeoNode.geonode }

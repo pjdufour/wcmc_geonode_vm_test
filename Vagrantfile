@@ -20,6 +20,8 @@ Vagrant.configure(2) do |config|
 
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "playbook.yml"
+    #ansible.inventory_path = "ansible_hosts"  Needs to be dynamically managed by Vagrant
+    ansible.limit = "all"
     ansible.host_key_checking = false
     ansible.verbose = "v"
     ansible.raw_arguments = []
